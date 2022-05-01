@@ -15,13 +15,15 @@ class Position
 end
 
 class Knight
+  attr_reader :start
+
   def initialize(start)
     @start = Position.new(start)
   end
 
   def shortest_path(finish, queue = [[start, 0, []]])
     curr, edges, visited = queue.shift
-    return [edges, visited, finish] if curr.coord == finish
+    return [edges, visited << finish] if curr.coord == finish
 
     queue += curr.next_coords.filter_map do |coord|
       [Position.new(coord), edges + 1, visited.dup << curr.coord] unless visited.include?(coord)
