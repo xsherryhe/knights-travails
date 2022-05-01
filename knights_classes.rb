@@ -1,5 +1,5 @@
 class Position
-  attr_accessor :coord, :next_coords
+  attr_reader :coord, :next_coords
 
   def self.changes
     base_change = [[1, 1], [1, -1], [-1, 1], [-1, -1]].map { |x, y| [x * 1, y * 2] }
