@@ -1,10 +1,10 @@
-require_relative 'knights_classes.rb'
+require_relative 'knights_classes'
 
 module KnightsTravails
   def self.knight_moves(start, finish)
     knight = Knight.new(start)
     moves, path = knight.shortest_path(finish)
-    puts "You made it in #{moves} moves! Here's your path:"
+    puts "You made it in #{moves} move#{moves == 1 ? '' : 's'}! Here's your path:"
     path.each { |coord| p coord }
   end
 
